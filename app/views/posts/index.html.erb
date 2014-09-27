@@ -1,0 +1,12 @@
+<h2>Sample BBC</h2>
+<%= link_to "Post new comment", new_post_path %>
+<%= link_to "User list", controller:"users",action:"index" %>
+<% @post.each do |post| %>
+	<div class="post">
+		<dl align>
+			<dt><%= post.title %></dt>
+			<dd><%= post.body %></dd>
+		</dl>
+	</div>
+<% end %>
+
