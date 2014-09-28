@@ -3,9 +3,14 @@
 <%= link_to "User list", controller:"users",action:"index" %>
 <% @post.each do |post| %>
 	<div class="post">
-		<dl align>
-			<dt><%= post.title %></dt>
-			<dd><%= post.body %></dd>
+		<dl>
+			<% if post.user.nil? %>
+				<dt><%= post.title %></dt>
+			<% else %>
+				<dt><%= post.title %> post by <%= post.user.name %> </dt>	
+			<% end %>
+			<dd><%= simple_format(post.body) %></dd>
+			<dd><%= post.created_at %> </dd>
 		</dl>
 	</div>
 <% end %>

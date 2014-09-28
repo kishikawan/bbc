@@ -1,8 +1,12 @@
 <h1>Posts#new</h1>
-<%= form_for(@post, :url => {:controller => 'posts', :action => 'create'}) do |f| %>
-	<%= f.label :title%><br />
-	<%= f.text_field :title%><br />
-	<%= f.label :body%><br />
-	<%= f.text_field :body%><br />
-	<%= f.submit "Post" %><br />
+<%= form_tag(:controller=>"posts", :action=>'create') do %>
+	<p>user
+		<%= text_field_tag "user" %>
+	</P>
+	<p>title
+	<%= text_field_tag "title" %>
+	</P>
+	<p>comment</P>
+	<%= text_area_tag "body", "",:size=>'40x20' %><br />
+	<%= submit_tag "Post" %>
 <% end %>
